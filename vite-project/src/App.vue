@@ -140,16 +140,7 @@ import { ref } from "vue";
 const json = ref();
 
 const editor = useEditor({
-  extensions: [
-    StarterKit,
-    Bold,
-    Document,
-    Paragraph,
-    Text,
-    HardBreak,
-    Italic,
-    Link,
-  ],
+  extensions: [StarterKit],
   content: "Введите что-нибудь для проверки",
   onUpdate: ({ editor }) => {
     json.value = editor.getJSON();
