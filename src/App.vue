@@ -119,12 +119,14 @@
       redo
     </button>
   </div>
-  <editor-content :editor="editor" />
+  <editor-content :editor="editor" @paste="handlePaste" />
   {{ json }}
 </template>
 
 <script setup>
 import StarterKit from "@tiptap/starter-kit";
+import Strike from "@tiptap/extension-strike";
+import { markPasteRule } from "@tiptap/core";
 import { useEditor, EditorContent } from "@tiptap/vue-3";
 
 import Bold from "@tiptap/extension-bold";
@@ -146,6 +148,12 @@ const editor = useEditor({
     json.value = editor.getJSON();
   },
 });
+
+const handlePaste = () => {
+  editor.value.commands.selectAll();
+  editor.value.commands.unsetAllMarks();
+  editor.value.commands.clearNodes();
+};
 </script>
 
 <style scoped>
