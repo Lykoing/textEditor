@@ -153,7 +153,17 @@ const handlePaste = () => {
   editor.value.commands.selectAll();
   editor.value.commands.unsetAllMarks();
   editor.value.commands.clearNodes();
+  // simulateCtrlZ();
 };
+
+// function simulateCtrlZ() {
+//   const event = new KeyboardEvent("keydown", {
+//     ctrlKey: true,
+//     key: "z",
+//   });
+
+//   document.dispatchEvent(event);
+// }
 </script>
 
 <style scoped>
